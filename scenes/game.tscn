@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhqaohcsut0e8"]
+[gd_scene load_steps=15 format=3 uid="uid://bhqaohcsut0e8"]
 
 [ext_resource type="Texture2D" uid="uid://2kgbfvy2rcba" path="res://assets/art/world_tileset.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cdvveb60bwdb6" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://2u2ao4ug084m" path="res://assets/art/platform-blue.png" id="3_lnu2h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("1_uwrxv")
@@ -102,6 +103,9 @@ size = Vector2(18, 68)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gee14"]
 size = Vector2(12, 61)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tnpc"]
+size = Vector2(48, 12.5)
+
 [node name="game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -145,3 +149,14 @@ shape = SubResource("RectangleShape2D_gee14")
 
 [node name="player" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(39, 95)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(506, 66)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lnu2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(506, 66)
+shape = SubResource("RectangleShape2D_0tnpc")
