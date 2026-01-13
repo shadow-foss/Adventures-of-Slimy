@@ -20,7 +20,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		dir += 1
 
-	if Input.is_action_just_pressed("swap_color"):
+	if Input.is_action_just_pressed("swap_color") and not is_on_floor():
 		if color == "green":
 			color = "blue"
 		else:
@@ -42,3 +42,10 @@ func _physics_process(delta):
 	else:
 		sprite.play("move_"+color)
 		sprite.flip_h = dir > 0
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.has_method("get_platform_color"):
+		if area.get_platform_color() != color:
+			get_tree().reload_current_scene()
+		

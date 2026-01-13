@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cdvveb60bwdb6"]
+[gd_scene load_steps=39 format=3 uid="uid://cdvveb60bwdb6"]
 
 [ext_resource type="Texture2D" uid="uid://b5w1qibkdf4i1" path="res://assets/art/slimy-blue.png" id="1_g2els"]
 [ext_resource type="Script" uid="uid://dq7qnhp1d8l4e" path="res://scenes/player.gd" id="1_qhqgy"]
@@ -264,6 +264,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(14, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(12, 13)
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_qhqgy")
 
@@ -279,3 +282,11 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_qhqgy")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
