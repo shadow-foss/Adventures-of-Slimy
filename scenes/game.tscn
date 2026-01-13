@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://bhqaohcsut0e8"]
+[gd_scene load_steps=24 format=3 uid="uid://bhqaohcsut0e8"]
 
 [ext_resource type="Texture2D" uid="uid://2kgbfvy2rcba" path="res://assets/art/world_tileset.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cdvveb60bwdb6" path="res://scenes/player.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://2u2ao4ug084m" path="res://assets/art/platform-blue.png" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://bv2jo3yx0lsa7" path="res://scripts/green_tiles.gd" id="4_lbhrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("1_uwrxv")
@@ -221,6 +222,7 @@ libraries = {
 autoplay = "moving_platform"
 
 [node name="green_tiles" type="Area2D" parent="."]
+script = ExtResource("4_lbhrr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="green_tiles"]
 position = Vector2(43, 111.5)
