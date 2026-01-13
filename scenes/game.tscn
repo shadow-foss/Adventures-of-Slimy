@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhqaohcsut0e8"]
+[gd_scene load_steps=13 format=3 uid="uid://bhqaohcsut0e8"]
 
 [ext_resource type="Texture2D" uid="uid://2kgbfvy2rcba" path="res://assets/art/world_tileset.png" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cdvveb60bwdb6" path="res://scenes/player.tscn" id="2_yqjtg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("1_uwrxv")
@@ -141,3 +142,6 @@ shape = SubResource("RectangleShape2D_u5sy4")
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(7, 81.5)
 shape = SubResource("RectangleShape2D_gee14")
+
+[node name="player" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(39, 95)

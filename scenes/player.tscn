@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://cdvveb60bwdb6"]
+[gd_scene load_steps=38 format=3 uid="uid://cdvveb60bwdb6"]
 
 [ext_resource type="Texture2D" uid="uid://b5w1qibkdf4i1" path="res://assets/art/slimy-blue.png" id="1_g2els"]
+[ext_resource type="Script" uid="uid://dq7qnhp1d8l4e" path="res://scenes/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://7hu6xx61hv8f" path="res://assets/art/slimy-green.png" id="2_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
@@ -264,6 +265,7 @@ animations = [{
 size = Vector2(14, 15)
 
 [node name="player" type="CharacterBody2D"]
+script = ExtResource("1_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ke2ow")
