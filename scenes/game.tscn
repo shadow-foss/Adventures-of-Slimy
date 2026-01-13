@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://bhqaohcsut0e8"]
+[gd_scene load_steps=28 format=3 uid="uid://bhqaohcsut0e8"]
 
 [ext_resource type="Texture2D" uid="uid://2kgbfvy2rcba" path="res://assets/art/world_tileset.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cdvveb60bwdb6" path="res://scenes/player.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://2u2ao4ug084m" path="res://assets/art/platform-blue.png" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://bv2jo3yx0lsa7" path="res://scripts/green_tiles.gd" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://csj83rmaxnpaf" path="res://scripts/blue_tiles.gd" id="5_iywne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("1_uwrxv")
@@ -160,6 +161,15 @@ size = Vector2(48, 3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
 size = Vector2(246, 4)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir15t"]
+size = Vector2(48, 3.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca42v"]
+size = Vector2(48, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rysoc"]
+size = Vector2(48, 4)
+
 [node name="game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -221,6 +231,8 @@ libraries = {
 }
 autoplay = "moving_platform"
 
+[node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
+
 [node name="green_tiles" type="Area2D" parent="."]
 script = ExtResource("4_lbhrr")
 
@@ -243,3 +255,18 @@ shape = SubResource("RectangleShape2D_kvuet")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="green_tiles"]
 position = Vector2(667, -64)
 shape = SubResource("RectangleShape2D_trtic")
+
+[node name="blue_tiles" type="Area2D" parent="."]
+script = ExtResource("5_iywne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blue_tiles"]
+position = Vector2(120, 111.75)
+shape = SubResource("RectangleShape2D_ir15t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="blue_tiles"]
+position = Vector2(248, 111.5)
+shape = SubResource("RectangleShape2D_ca42v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="blue_tiles"]
+position = Vector2(376, 80)
+shape = SubResource("RectangleShape2D_rysoc")
