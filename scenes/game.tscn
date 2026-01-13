@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bhqaohcsut0e8"]
+[gd_scene load_steps=29 format=3 uid="uid://bhqaohcsut0e8"]
 
 [ext_resource type="Texture2D" uid="uid://2kgbfvy2rcba" path="res://assets/art/world_tileset.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cdvveb60bwdb6" path="res://scenes/player.tscn" id="2_yqjtg"]
@@ -146,6 +146,9 @@ _data = {
 &"moving_platform": SubResource("Animation_lnu2h")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssvqc"]
+size = Vector2(48, 4)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtaks"]
 size = Vector2(103, 3)
 
@@ -232,6 +235,11 @@ libraries = {
 autoplay = "moving_platform"
 
 [node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
+script = ExtResource("5_iywne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
+position = Vector2(506, 60)
+shape = SubResource("RectangleShape2D_ssvqc")
 
 [node name="green_tiles" type="Area2D" parent="."]
 script = ExtResource("4_lbhrr")
