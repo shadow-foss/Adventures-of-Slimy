@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bhqaohcsut0e8"]
+[gd_scene load_steps=23 format=3 uid="uid://bhqaohcsut0e8"]
 
 [ext_resource type="Texture2D" uid="uid://2kgbfvy2rcba" path="res://assets/art/world_tileset.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cdvveb60bwdb6" path="res://scenes/player.tscn" id="2_yqjtg"]
@@ -144,6 +144,21 @@ _data = {
 &"moving_platform": SubResource("Animation_lnu2h")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtaks"]
+size = Vector2(103, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvpfn"]
+size = Vector2(62.5, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dinhu"]
+size = Vector2(48, 3.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
+size = Vector2(48, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
+size = Vector2(246, 4)
+
 [node name="game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -204,3 +219,25 @@ libraries = {
 &"": SubResource("AnimationLibrary_iywne")
 }
 autoplay = "moving_platform"
+
+[node name="green_tiles" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="green_tiles"]
+position = Vector2(43, 111.5)
+shape = SubResource("RectangleShape2D_vtaks")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="green_tiles"]
+position = Vector2(176.75, 111)
+shape = SubResource("RectangleShape2D_kvpfn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="green_tiles"]
+position = Vector2(312, 96)
+shape = SubResource("RectangleShape2D_dinhu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="green_tiles"]
+position = Vector2(440, 64)
+shape = SubResource("RectangleShape2D_kvuet")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="green_tiles"]
+position = Vector2(667, -64)
+shape = SubResource("RectangleShape2D_trtic")
